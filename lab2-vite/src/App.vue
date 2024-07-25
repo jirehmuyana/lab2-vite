@@ -10,6 +10,8 @@ import { RouterLink, RouterView } from 'vue-router'
           <RouterLink to="/">Event</RouterLink>
           <span class="separator"> | </span>
           <RouterLink to="/about">About</RouterLink>
+          <span class="separator"> | </span>
+          <RouterLink to="/student-info">Student Information</RouterLink>
         </nav>
       </div>
     </header>
@@ -18,29 +20,29 @@ import { RouterLink, RouterView } from 'vue-router'
 </template>
 
 <style>
-#layout{
+#layout {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
 }
-nav{
+nav {
   padding: 30px;
 }
 
 nav a {
-font-weight: bold;
-color: #2c3e50;
+  font-weight: bold;
+  color: #2c3e50;
 }
-nav a.router-link-exact-active{
+nav a.router-link-exact-active {
   color: #42b983;
 }
 
-h2{
+h2 {
   font-size: 20px;
 }
-.separator{
+.separator {
   color: #2c3e50;
   font-weight: bold;
 }

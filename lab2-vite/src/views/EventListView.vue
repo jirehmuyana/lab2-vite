@@ -1,17 +1,16 @@
 <script setup lang="ts">
 import EventCard from '@/components/EventCard.vue'
-import EventDetails from '@/components/EventDetails.vue';
 import type { Event } from '@/type'
 import { ref, onMounted } from 'vue'
-import axios from 'axios'
+import EventService from '@/services/EventService'
 
-const events = ref<Event[]>(null)
+const events = ref<Event[]>([])
 
-onMounted( () => {
-  axios
-    .get('https://my-json-server.typicode.com/jirehmuyana/331-vite-lab2-mock-server/db')
+onMounted(() => {
+  EventService.getEvents()
     .then((response) => {
-      console.log(response.data)
+      console.log('slay', response.data)
+      events.value = response.data
     })
     .catch((error) => {
       console.error('There was an error!', error)
@@ -25,12 +24,12 @@ onMounted( () => {
 
   <div class="events">
     <EventCard v-for="event in events" :key="event.id" :event="event" />
-    <EventDetails v-for="event in events" :key="event.id" :event="event" />
-</div>
+    <!-- <EventDetails v-for="event in events" :key="event.id" :event="event" /> -->
+  </div>
 </template>
 
 <style scoped>
-.events{
+.events {
   display: flex;
   flex-direction: column;
   align-items: center;
